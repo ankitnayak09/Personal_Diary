@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useParams } from "react-router";
 import { url } from "../utils/serverUrl";
+import { Context } from "../context/contextAPI";
 
 function FullPost() {
 	const [post, setPost] = useState({});
 	const { id } = useParams();
 
+	const { setLoading } = useContext(Context);
+
 	useEffect(() => {
 		fetchPostById();
 	}, []);
 	function fetchPostById() {
+		setLoading(true);
 		fetch(url + "/posts/" + id)
 			.then((res) => res.json())
-			.then((data) => setPost(data));
+			.then((data) => {
+				setPost(data);
+				setLoading(false);
+			});
 	}
 	return (
 		<>

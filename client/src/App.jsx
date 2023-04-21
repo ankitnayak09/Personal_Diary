@@ -19,7 +19,6 @@ function App() {
 						<Route path="/" exact element={<Home />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/compose" element={<Compose />} />
-						{/* <Route path="/contact" element={<Contact />} /> */}
 						<Route path="/about" element={<About />} />
 						<Route path="/posts/:id" element={<FullPost />} />
 					</Routes>

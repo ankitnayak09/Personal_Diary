@@ -10,7 +10,7 @@ const userId = localStorage.getItem("user");
 
 function Home() {
 	const [posts, setPosts] = useState([]);
-	const { loading, setLoading } = useContext(Context);
+	const { setLoading } = useContext(Context);
 
 	const navigate = useNavigate();
 	useEffect(() => {
