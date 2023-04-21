@@ -20,10 +20,8 @@ function FullPost() {
 		<>
 			<Header />
 			<div className="min-h-[calc(100vh-90px)]">
-				<div className="mb-10 border-b-4 rounded hover:bg-indigo-200 cursor-pointer transition-all py-2 px-4 rounded-lg hover:-translate-y-2">
-					<h1 className="text-4xl font-bold my-5 hover:no-underline">
-						{post?.title}
-					</h1>
+				<div className="mb-10 border-b-4 rounded py-2 px-4 rounded-lg">
+					<h1 className="text-4xl font-bold my-5">{post?.title}</h1>
 					<p className="my-5">{post?.content}</p>
 				</div>
 			</div>
