@@ -11,20 +11,21 @@ import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import Login from "./Pages/Login";
 import FullPost from "./Pages/FullPost";
+import Loader from "./components/Loader";
 function App() {
-	const [count, setCount] = useState(0);
-
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/login" exact element={<Login />} />
-				<Route path="/compose" element={<Compose />} />
-				{/* <Route path="/contact" element={<Contact />} /> */}
-				<Route path="/about" element={<About />} />
-				<Route path="/posts/:id" element={<FullPost />} />
-			</Routes>
-		</BrowserRouter>
+		<>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/login" exact element={<Login />} />
+					<Route path="/compose" element={<Compose />} />
+					{/* <Route path="/contact" element={<Contact />} /> */}
+					<Route path="/about" element={<About />} />
+					<Route path="/posts/:id" element={<FullPost />} />
+				</Routes>
+			</BrowserRouter>
+		</>
 	);
 }
 

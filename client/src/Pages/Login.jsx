@@ -24,7 +24,7 @@ function Login() {
 			.then((res) => res.json())
 			.then((data) => {
 				localStorage.setItem("user", data.user._id);
-				if (data.message) navigate("/");
+				navigate("/");
 			});
 	}
 

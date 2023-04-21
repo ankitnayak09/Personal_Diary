@@ -4,15 +4,16 @@ import Footer from "../components/Footer";
 import { url } from "../utils/serverUrl";
 import { Link, useNavigate } from "react-router-dom";
 import Post from "../components/Post";
+import Loader from "../components/Loader";
 
 const userId = localStorage.getItem("user");
+
 function Home() {
 	const [posts, setPosts] = useState([]);
 
 	const navigate = useNavigate();
 	useEffect(() => {
-		if (userId == "undefined") navigate("/login");
-		console.log("UseEffect Called");
+		if (userId == null) navigate("/login");
 		fetchAllPosts();
 	}, []);
 
@@ -25,7 +26,9 @@ function Home() {
 			body: JSON.stringify({ userId }),
 		})
 			.then((res) => res.json())
-			.then((data) => setPosts(data.posts));
+			.then((data) => {
+				setPosts(data.posts);
+			});
 	}
 	return (
 		<>

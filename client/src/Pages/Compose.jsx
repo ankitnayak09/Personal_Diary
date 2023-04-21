@@ -12,7 +12,7 @@ function Compose() {
 
 	useEffect(() => {
 		const user = localStorage.getItem("user");
-		if (user == "undefined") navigate("/login");
+		if (user == null) navigate("/login");
 	}, []);
 
 	function handleComposePost(e) {

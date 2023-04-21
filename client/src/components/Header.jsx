@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Header() {
 	const navigate = useNavigate();
 	function handleSignout() {
-		localStorage.setItem("user", "undefined");
+		localStorage.removeItem("user");
 		navigate("/login");
 	}
 	return (
