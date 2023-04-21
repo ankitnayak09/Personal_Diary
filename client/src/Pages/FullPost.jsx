@@ -21,9 +21,7 @@ function FullPost() {
 			<Header />
 			<div className="min-h-[calc(100vh-112px)] max-w-screen-lg mx-auto">
 				<div className="mb-10 rounded py-5 px-4 rounded-lg mt-10">
-					<p className="text-2xl">
-						Date: <span></span>{" "}
-					</p>
+					<p className="text-2xl">Date: {post?.writtenOn} </p>
 					<h1 className="text-5xl font-bold my-5 font-mono">
 						{post?.title}
 					</h1>

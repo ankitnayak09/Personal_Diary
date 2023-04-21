@@ -24,6 +24,7 @@ const postSchema = {
 	title: { type: String, required: true },
 	content: { type: String, required: true },
 	author: { type: String, required: true },
+	writtenOn: { type: String },
 };
 //mongoose model
 const Post = mongoose.model("Post", postSchema);
@@ -48,6 +49,7 @@ app.post("/compose", function (req, res) {
 		title: req.body.postTitle,
 		content: req.body.postBody,
 		author: req.body.userId,
+		writtenOn: req.body.date,
 	});
 	// composed blog gets saved and the user is redirected to "/" route
 	post.save(function (err) {
@@ -65,6 +67,7 @@ app.get("/posts/:postId", function (req, res) {
 		res.status(200).json({
 			title: post.title,
 			content: post.content,
+			writtenOn: post.writtenOn,
 		});
 	});
 });

@@ -36,7 +36,7 @@ function Home() {
 	return (
 		<>
 			<Header />
-			<section className="max-w-screen-xl mx-auto py-10 min-h-[calc(100vh-87px)] px-10">
+			<section className="max-w-screen-xl mx-auto py-10 min-h-[calc(100vh-120px)] px-10">
 				<div className="">
 					<Link
 						to="/compose"

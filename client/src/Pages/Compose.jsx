@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { url } from "../utils/serverUrl";
 import { useNavigate } from "react-router";
+import moment from "moment";
 
 function Compose() {
 	const [postTitle, setPostTitle] = useState("");
@@ -18,12 +19,13 @@ function Compose() {
 	function handleComposePost(e) {
 		e.preventDefault();
 		const userId = localStorage.getItem("user");
+		const date = moment(Date.now()).format("MMM Do YY");
 		fetch(url + "/compose", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ postTitle, postBody, userId }),
+			body: JSON.stringify({ postTitle, postBody, userId, date }),
 		})
 			.then((res) => res.json())
 			.then(() => {

@@ -41,7 +41,7 @@ function Header() {
 								to="/about"
 								className=" text-[#F2E9E4] hover:no-underline border-2 border-transparent hover:border-white rounded-3xl py-2 px-4  hover:text-[#C9ADA7]"
 							>
-								ABOUT US
+								ABOUT
 							</Link>
 						</li>
 						<li id="signout">
