@@ -27,6 +27,7 @@ function Login() {
 			}, 3000);
 			return;
 		}
+
 		fetch(url + "/login", {
 			method: "post",
 			headers: {
@@ -42,7 +43,7 @@ function Login() {
 			.then((data) => {
 				if (data.message) {
 					localStorage.setItem("user", data.user._id);
-					navigate("/");
+					navigate("../");
 				} else {
 					setMessage("User Doesn't Exist");
 					setTimeout(() => {
@@ -51,6 +52,7 @@ function Login() {
 				}
 			});
 	}
+
 	function handleSignup(e) {
 		e.preventDefault();
 		fetch(url + "/signup", {
@@ -65,7 +67,12 @@ function Login() {
 			}),
 		})
 			.then((res) => res.json())
-			.then((data) => setMessage("Account Created 🙌, Login Now!"));
+			.then((data) => {
+				setMessage("Account Created 🙌, Login Now!");
+				setTimeout(() => {
+					setMessage("");
+				}, 3000);
+			});
 	}
 
 	return (
