@@ -11,7 +11,7 @@ function About() {
 	return (
 		<>
 			<Header />
-			<div className="max-w-screen-xl mx-auto py-10 min-h-[calc(100vh-90px)]">
+			<div className="max-w-screen-xl mx-auto py-10 min-h-[calc(100vh-87px)]">
 				<h1>About</h1>
 				<p>
 					{" "}

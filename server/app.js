@@ -21,9 +21,9 @@ mongoose.connect(
 
 //Creating a Schema
 const postSchema = {
-	title: String,
-	content: String,
-	author: String,
+	title: { type: String, required: true },
+	content: { type: String, required: true },
+	author: { type: String, required: true },
 };
 //mongoose model
 const Post = mongoose.model("Post", postSchema);
@@ -85,13 +85,23 @@ app.post("/signup", function (req, res) {
 	var pass = req.body.password;
 	var password = getHash(pass);
 
-	const newUser = new User({
-		email: email,
-		password: password,
-	});
-	newUser.save(function (err) {
+	User.findOne({ email }, (err, user) => {
+		console.log(user);
 		if (!err) {
-			res.status(200).json({ newUser });
+			res.status(200).json({
+				message: false,
+				error: "User Already Exist",
+			});
+		} else {
+			const newUser = new User({
+				email: email,
+				password: password,
+			});
+			newUser.save(function (err) {
+				if (!err) {
+					res.status(200).json({ newUser, message: true });
+				}
+			});
 		}
 	});
 });

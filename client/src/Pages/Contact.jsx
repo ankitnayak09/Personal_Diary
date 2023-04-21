@@ -12,7 +12,7 @@ function Contact() {
 	return (
 		<>
 			<Header />
-			<div className="max-w-screen-xl mx-auto py-10 min-h-[calc(100vh-90px)]">
+			<div className="max-w-screen-xl mx-auto py-10 min-h-[calc(100vh-87px)]">
 				<section id="contact" class="relative w-full text-red-500">
 					<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-800 h-32 w-full"></div>
 

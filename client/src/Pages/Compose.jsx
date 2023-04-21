@@ -34,28 +34,34 @@ function Compose() {
 	return (
 		<>
 			<Header />
-			<section className="max-w-screen-xl mx-auto py-10 min-h-[calc(100vh-90px)]">
-				<h1 className="text-4xl font-bold mb-5">Compose</h1>
+			<section className="max-w-screen-md mx-auto py-10 min-h-[calc(100vh-120px)] px-10">
+				<h1 className="text-4xl font-bold mb-5 font-mono">Journal</h1>
 				<form className="" onSubmit={handleComposePost}>
-					<div className="form-group">
-						<label>Title</label>
-						<input
-							className="form-control"
-							type="text"
-							name="postTitle"
-							onChange={(e) => setPostTitle(e.target.value)}
-						/>
-						<label>Content</label>
-						<textarea
-							className="form-control"
-							name="postBody"
-							rows="5"
-							cols="30"
-							onChange={(e) => setPostBody(e.target.value)}
-						></textarea>
+					<div className="flex flex-col gap-5">
+						<div>
+							<label className="text-xl">Title</label>
+							<input
+								className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 py-3"
+								type="text"
+								name="postTitle"
+								onChange={(e) => setPostTitle(e.target.value)}
+								placeholder="Visit to Amritsar . . . . . "
+							/>
+						</div>
+						<div>
+							<label className="text-xl">Content</label>
+							<textarea
+								className="border mt-1 rounded px-4 w-full bg-gray-50 py-3"
+								name="postBody"
+								rows="5"
+								cols="30"
+								onChange={(e) => setPostBody(e.target.value)}
+								placeholder="I arrived in Amritsar in the afternoon after a long flight. The city was . . ."
+							></textarea>
+						</div>
 					</div>
 					<button
-						className="border-2 border-indigo-950 py-2 px-4 rounded-full hover:bg-indigo-950 hover:text-white transition-all"
+						className="border-2 font-bold border-indigo-950 py-2 px-4 rounded-full hover:bg-indigo-950 hover:text-white transition-all block w-full text-lg mt-5"
 						type="submit"
 						name="button"
 					>

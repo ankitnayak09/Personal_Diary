@@ -68,17 +68,24 @@ function Login() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				setMessage("Account Created 🙌, Login Now!");
-				setTimeout(() => {
-					setMessage("");
-				}, 3000);
+				if (data.message) {
+					setMessage("Account Created 🙌, Login Now!");
+					setTimeout(() => {
+						setMessage("");
+					}, 3000);
+				} else {
+					setMessage("User Already Exists");
+					setTimeout(() => {
+						setMessage("");
+					}, 3000);
+				}
 			});
 	}
 
 	return (
 		<>
 			<section className="flex flex-col md:flex-row h-screen items-center">
-				<div className="bg-indigo-600 block w-full md:w-1/2 xl:w-2/3 h-screen">
+				<div className="hidden md:block w-full md:w-1/2 xl:w-2/3 h-screen">
 					<img
 						src={LoginBG}
 						alt=""
@@ -87,10 +94,13 @@ function Login() {
 				</div>
 
 				<div
-					className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+					className="bg-[#F2E9E4] w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
         flex items-center justify-center"
 				>
 					<div className="w-full h-100">
+						<h1 className="text-5xl font-bold font-mono text-center">
+							Personal Diary
+						</h1>
 						<h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">
 							Log in to your account
 						</h1>
