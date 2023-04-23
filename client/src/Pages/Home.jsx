@@ -14,7 +14,7 @@ function Home() {
 
 	const navigate = useNavigate();
 	useEffect(() => {
-		if (userId == null) navigate("/login");
+		if (userId == null) navigate("/");
 		fetchAllPosts();
 	}, []);
 

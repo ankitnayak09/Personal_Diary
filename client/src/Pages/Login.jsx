@@ -43,7 +43,7 @@ function Login() {
 			.then((data) => {
 				if (data.message) {
 					localStorage.setItem("user", data.user._id);
-					navigate("../");
+					navigate("/home");
 				} else {
 					setMessage("User Doesn't Exist");
 					setTimeout(() => {

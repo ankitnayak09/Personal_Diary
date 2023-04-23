@@ -120,7 +120,10 @@ app.post("/login", function (req, res) {
 			if (user?.password == password) {
 				res.status(200).json({ user, message: true });
 			} else {
-				res.status(200).json({ message: false });
+				res.status(401).json({
+					message: false,
+					error: "Wrong Password",
+				});
 			}
 		} else {
 			res.status(200).json({ message: false, error: err });
