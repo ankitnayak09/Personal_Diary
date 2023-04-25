@@ -22,7 +22,7 @@ function Header() {
 							to="/home"
 							className="visited:text-[#F2E9E4] focus:text-[#F2E9E4] no-underline"
 						>
-							<h1 className="text-4xl font-bold  hover:text-[#C9ADA7] no-underline">
+							<h1 className="text-4xl font-bold  hover:text-[#C9ADA7] no-underline font-mono">
 								PERSONAL DIARY
 							</h1>
 						</Link>
