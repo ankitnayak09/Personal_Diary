@@ -29,7 +29,7 @@ function Compose() {
 		})
 			.then((res) => res.json())
 			.then(() => {
-				navigator("/");
+				navigator("/home");
 			});
 	}
 

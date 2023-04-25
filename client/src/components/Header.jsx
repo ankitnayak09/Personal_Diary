@@ -30,7 +30,7 @@ function Header() {
 					<ul className="flex gap-10 items-center">
 						<li id="home">
 							<Link
-								to="/"
+								to="/home"
 								className=" text-[#F2E9E4] hover:no-underline border-2 border-transparent hover:border-white rounded-3xl py-2 px-4  hover:text-[#C9ADA7]"
 							>
 								HOME
