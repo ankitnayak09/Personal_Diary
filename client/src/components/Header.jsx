@@ -19,7 +19,7 @@ function Header() {
 				<div className="max-w-screen-xl flex justify-between mx-auto py-5">
 					<div className="">
 						<Link
-							to="/"
+							to="/home"
 							className="visited:text-[#F2E9E4] focus:text-[#F2E9E4] no-underline"
 						>
 							<h1 className="text-4xl font-bold  hover:text-[#C9ADA7] no-underline">
