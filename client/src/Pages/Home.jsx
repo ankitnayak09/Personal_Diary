@@ -6,11 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Post from "../components/Post";
 import { Context } from "../context/contextAPI";
 
+import { BiSearch } from "react-icons/bi";
+
 const userId = localStorage.getItem("user");
 
 function Home() {
 	const [posts, setPosts] = useState([]);
 	const { setLoading } = useContext(Context);
+	const [searchText, setSearchText] = useState("");
 
 	const navigate = useNavigate();
 	useEffect(() => {
@@ -36,19 +39,28 @@ function Home() {
 	return (
 		<>
 			<Header />
-			<section className="max-w-screen-xl mx-auto py-10 min-h-[calc(100vh-120px)] px-10">
+			<section className="max-w-screen-xl mx-auto py-10 min-h-[calc(100vh-120px)] px-10 bg-diary">
 				<div className="">
-					<Link
-						to="/compose"
-						className="border-2 border-indigo-950 py-2 px-4 rounded-full hover:bg-indigo-950 hover:text-white transition-all hover:no-underline mb-10 inline-block"
-					>
-						Add Journal +
-					</Link>
+					<div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-2">
+						<Link
+							to="/compose"
+							className="border-2 border-indigo-950 py-2 px-4 rounded-full hover:bg-indigo-950 hover:text-white transition-all hover:no-underline inline-block"
+						>
+							Add Journal +
+						</Link>
+						<div className="flex items-center">
+							<input
+								type="text"
+								name="searchText"
+								onChange={(e) => setSearchText(e.target.value)}
+								className="-mr-6 py-2 px-4 pr-8 rounded"
+							/>
+							<BiSearch className="text-2xl transition-all" />
+						</div>
+					</div>
 					{posts.length > 0 ? (
-						posts.map((post) => (
-							<>
-								<Post post={post} key={post?._id} />
-							</>
+						posts.map((post, index) => (
+							<Post post={post} key={index} />
 						))
 					) : (
 						<div className="typewriter">

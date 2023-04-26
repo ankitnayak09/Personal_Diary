@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { url } from "../utils/serverUrl";
 
@@ -55,6 +55,21 @@ function Login() {
 
 	function handleSignup(e) {
 		e.preventDefault();
+
+		if (email == "") {
+			setMessage("Email Cannot be Empty");
+			setTimeout(() => {
+				setMessage("");
+			}, 3000);
+			return;
+		} else if (password == "") {
+			setMessage("Password Cannot be Empty");
+			setTimeout(() => {
+				setMessage("");
+			}, 3000);
+			return;
+		}
+
 		fetch(url + "/signup", {
 			method: "post",
 			headers: {
@@ -82,6 +97,10 @@ function Login() {
 			});
 	}
 
+	useEffect(() => {
+		const user = localStorage.getItem("user");
+		if (user) navigate("/home");
+	}, []);
 	return (
 		<>
 			<section className="flex flex-col md:flex-row h-screen items-center">
@@ -98,8 +117,8 @@ function Login() {
         flex items-center justify-center"
 				>
 					<div className="w-full h-100">
-						<h1 className="text-5xl font-bold font-mono text-center">
-							Personal Diary
+						<h1 className="text-5xl font-bold font-script text-center">
+							ScribeSpace
 						</h1>
 						<h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">
 							Log in to your account

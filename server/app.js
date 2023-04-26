@@ -37,8 +37,8 @@ app.get("/", (req, res) => res.send("Backed is Running Smoothly"));
 //the home route
 app.post("/", function (req, res) {
 	const id = req.body.userId;
-	Post.find({ author: id }).sort({ date: -1 }, function (err, posts) {
-		// console.log(posts);
+	Post.find({ author: id }, function (err, posts) {
+		posts.reverse();
 		res.status(200).json({ posts });
 	});
 });

@@ -55,9 +55,11 @@ function Compose() {
 							<textarea
 								className="border mt-1 rounded px-4 w-full bg-gray-50 py-3"
 								name="postBody"
-								rows="5"
+								rows="10"
 								cols="30"
-								onChange={(e) => setPostBody(e.target.value)}
+								onChange={(e) => {
+									setPostBody(e.target.value);
+								}}
 								placeholder="I arrived in Amritsar in the afternoon after a long flight. The city was . . ."
 							></textarea>
 						</div>

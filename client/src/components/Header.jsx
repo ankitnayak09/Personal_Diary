@@ -15,19 +15,19 @@ function Header() {
 	return (
 		<>
 			{loading && <Loader />}
-			<nav className="bg-[#4A4E69] text-[#F2E9E4]">
-				<div className="max-w-screen-xl flex justify-between mx-auto py-5">
+			<nav className="bg-[#2A2F4F] text-[#F2E9E4]">
+				<div className="max-w-screen-xl flex flex-col md:flex-row justify-between mx-auto py-5 px-10">
 					<div className="">
 						<Link
 							to="/home"
 							className="visited:text-[#F2E9E4] focus:text-[#F2E9E4] no-underline"
 						>
-							<h1 className="text-4xl font-bold  hover:text-[#C9ADA7] no-underline font-mono">
-								PERSONAL DIARY
+							<h1 className="text-4xl font-bold  hover:text-[#C9ADA7] no-underline font-script inline-block">
+								ScribeSpace
 							</h1>
 						</Link>
 					</div>
-					<ul className="flex gap-10 items-center">
+					<ul className="flex md:gap-10 items-center justify-between">
 						<li id="home">
 							<Link
 								to="/home"
