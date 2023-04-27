@@ -47,18 +47,18 @@ function Home() {
 			.fromTo(
 				".btn-add",
 				{
-					y: 50,
+					opacity: 0,
 					ease: "bounce.out()",
 				},
-				{ y: 0 }
+				{ opacity: 1 }
 			)
 			.fromTo(
 				".search-box",
 				{
-					y: 50,
+					opacity: 0,
 					ease: "bounce.out",
 				},
-				{ y: 0 }
+				{ opacity: 1 }
 			);
 	}, []);
 
@@ -79,7 +79,7 @@ function Home() {
 	}
 
 	function handleSearch(query) {
-		if (query == "") return;
+		if (query == "") fetchAllPosts();
 		fetch(url + "/search/" + query)
 			.then((res) => res.json())
 			.then((posts) => setPosts(posts.posts));
