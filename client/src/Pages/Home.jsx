@@ -47,18 +47,18 @@ function Home() {
 			.fromTo(
 				".btn-add",
 				{
-					x: -200,
+					y: 50,
 					ease: "bounce.out()",
 				},
-				{ x: 0 }
+				{ y: 0 }
 			)
 			.fromTo(
 				".search-box",
 				{
-					x: 500,
+					y: 50,
 					ease: "bounce.out",
 				},
-				{ x: 0 }
+				{ y: 0 }
 			);
 	}, []);
 
