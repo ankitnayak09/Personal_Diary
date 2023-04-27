@@ -81,4 +81,5 @@ body {
 body {
     background-image: url('../src/assets/bg-diary.jpg');
     overflow-x: hidden;
+    width: 100vw;
 }
