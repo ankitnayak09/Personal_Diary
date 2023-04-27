@@ -15,12 +15,12 @@ function Header() {
 	return (
 		<>
 			{loading && <Loader />}
-			<nav className="bg-[#2A2F4F] text-[#F2E9E4]">
+			<nav className="bg-[#2A2F4F] text-[#F2E9E4] navbar">
 				<div className="max-w-screen-xl flex flex-col md:flex-row justify-between mx-auto py-5 px-10">
 					<div className="">
 						<Link
 							to="/home"
-							className="visited:text-[#F2E9E4] focus:text-[#F2E9E4] no-underline"
+							className="visited:text-[#F2E9E4] focus:text-[#F2E9E4] no-underline nav-logo"
 						>
 							<h1 className="text-4xl font-bold  hover:text-[#C9ADA7] no-underline font-script inline-block">
 								ScribeSpace
@@ -28,7 +28,7 @@ function Header() {
 						</Link>
 					</div>
 					<ul className="flex md:gap-10 items-center justify-between">
-						<li id="home">
+						<li id="home" className="nav-links">
 							<Link
 								to="/home"
 								className=" text-[#F2E9E4] hover:no-underline border-2 border-transparent hover:border-white rounded-3xl py-2 px-4  hover:text-[#C9ADA7]"
@@ -36,7 +36,7 @@ function Header() {
 								HOME
 							</Link>
 						</li>
-						<li id="about">
+						<li id="about" className="nav-links">
 							<Link
 								to="/about"
 								className=" text-[#F2E9E4] hover:no-underline border-2 border-transparent hover:border-white rounded-3xl py-2 px-4  hover:text-[#C9ADA7]"
@@ -44,7 +44,7 @@ function Header() {
 								ABOUT
 							</Link>
 						</li>
-						<li id="signout">
+						<li id="signout" className="nav-links">
 							<button
 								className="bg-gray-600 hover:bg-gray-900 hover:scale-105 text-white px-4 py-2 rounded-full"
 								onClick={handleSignout}

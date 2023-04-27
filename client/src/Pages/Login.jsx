@@ -89,7 +89,7 @@ function Login() {
 						setMessage("");
 					}, 3000);
 				} else {
-					setMessage("User Already Exists");
+					setMessage(data.error);
 					setTimeout(() => {
 						setMessage("");
 					}, 3000);

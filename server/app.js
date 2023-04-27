@@ -19,18 +19,21 @@ mongoose.connect(
 	{ useUnifiedTopology: true }
 );
 
-//Creating a Schema
-const postSchema = {
-	title: { type: String, required: true },
-	content: { type: String, required: true },
-	author: { type: String, required: true },
-	writtenOn: { type: String },
-};
-//mongoose model
-const Post = mongoose.model("Post", postSchema);
-
 // User Model
 const User = require("./models/User");
+
+// Post Model
+const Post = require("./models/Post");
+
+var getHash = (pass) => {
+	var hmac = crypto.createHmac("sha512", "signature");
+	// passing the data to be hashed
+	data = hmac.update(pass);
+	// Creating the hmac in the required format
+	gen_hmac = data.digest("hex");
+	// console.log("hmac : " + gen_hmac);
+	return gen_hmac;
+};
 
 app.get("/", (req, res) => res.send("Backed is Running Smoothly"));
 
@@ -72,41 +75,25 @@ app.get("/posts/:postId", function (req, res) {
 	});
 });
 
-var getHash = (pass) => {
-	var hmac = crypto.createHmac("sha512", "signature");
-	// passing the data to be hashed
-	data = hmac.update(pass);
-	// Creating the hmac in the required format
-	gen_hmac = data.digest("hex");
-	// console.log("hmac : " + gen_hmac);
-	return gen_hmac;
-};
-
-app.post("/signup", function (req, res) {
+app.post("/signup", async function (req, res) {
 	// var name = req.body.name;
-	var email = req.body.email;
-	var pass = req.body.password;
+	var email = req.body?.email;
+	var pass = req.body?.password;
 	var password = getHash(pass);
 
-	User.findOne({ email }, (err, user) => {
-		console.log(user);
-		if (!err && user) {
-			res.status(200).json({
-				message: false,
-				error: "User Already Exist",
-			});
-		} else {
-			const newUser = new User({
-				email: email,
-				password: password,
-			});
-			newUser.save(function (err) {
-				if (!err) {
-					res.status(200).json({ newUser, message: true });
-				}
-			});
-		}
+	const newUser = User({
+		email,
+		password,
 	});
+
+	try {
+		await newUser.save();
+		return res.status(200).json({ newUser, message: true });
+	} catch (err) {
+		return res
+			.status(400)
+			.json({ message: false, error: "User Already Exist" });
+	}
 });
 
 app.post("/login", function (req, res) {
@@ -118,16 +105,25 @@ app.post("/login", function (req, res) {
 		if (!err) {
 			// console.log(user);
 			if (user?.password == password) {
-				res.status(200).json({ user, message: true });
+				return res.status(200).json({ user, message: true });
 			} else {
-				res.status(401).json({
+				return res.status(401).json({
 					message: false,
 					error: "Wrong Password",
 				});
 			}
 		} else {
-			res.status(200).json({ message: false, error: err });
+			return res.status(200).json({ message: false, error: err });
 		}
+	});
+});
+
+// Search Functionality
+app.get("/search/:query", (req, res) => {
+	const { query } = req.params;
+	var regex = new RegExp(query, "i");
+	Post.find({ $or: [{ title: regex }, { content: regex }] }).then((posts) => {
+		res.status(200).json({ posts });
 	});
 });
 
