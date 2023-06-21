@@ -1,3 +1,3 @@
 // const url = "http://localhost:3000";
-const url = "personaldiary-production.up.railway.app";
+const url = "https://www.personaldiary-production.up.railway.app";
 export { url };

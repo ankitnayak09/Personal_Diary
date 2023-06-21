@@ -29,7 +29,7 @@ function Login() {
 		}
 
 		fetch(url + "/login", {
-			method: "post",
+			method: "POST",
 			headers: {
 				Accept: "application.json",
 				"Content-Type": "application/json",
@@ -71,7 +71,7 @@ function Login() {
 		}
 
 		fetch(url + "/signup", {
-			method: "post",
+			method: "POST",
 			headers: {
 				Accept: "application.json",
 				"Content-Type": "application/json",
