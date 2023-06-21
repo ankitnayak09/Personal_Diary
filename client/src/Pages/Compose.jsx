@@ -12,13 +12,13 @@ function Compose() {
 	const navigator = useNavigate();
 
 	useEffect(() => {
-		const user = localStorage.getItem("user");
+		const user = sessionStorage.getItem("user");
 		if (user == null) navigate("/login");
 	}, []);
 
 	function handleComposePost(e) {
 		e.preventDefault();
-		const userId = localStorage.getItem("user");
+		const userId = sessionStorage.getItem("user");
 		const date = moment(Date.now()).format("MMM Do YY");
 		fetch(url + "/compose", {
 			method: "POST",

@@ -13,7 +13,7 @@ import gsap from "gsap";
 function About() {
 	const navigate = useNavigate();
 	useEffect(() => {
-		const user = localStorage.getItem("user");
+		const user = sessionStorage.getItem("user");
 		if (user == null) navigate("/login");
 		const timeline = gsap.timeline();
 		timeline

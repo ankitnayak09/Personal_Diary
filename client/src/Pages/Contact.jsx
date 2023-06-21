@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 function Contact() {
 	const navigate = useNavigate();
 	useEffect(() => {
-		const user = localStorage.getItem("user");
+		const user = sessionStorage.getItem("user");
 		if (user == "undefined") navigate("/login");
 	}, []);
 	return (

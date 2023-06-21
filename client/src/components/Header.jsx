@@ -6,7 +6,7 @@ import Loader from "./Loader";
 function Header() {
 	const navigate = useNavigate();
 	function handleSignout() {
-		localStorage.removeItem("user");
+		sessionStorage.removeItem("user");
 		navigate("/login");
 	}
 

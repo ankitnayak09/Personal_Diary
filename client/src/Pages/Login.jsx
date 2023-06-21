@@ -42,7 +42,7 @@ function Login() {
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.message) {
-					localStorage.setItem("user", data.user._id);
+					sessionStorage.setItem("user", data.user._id);
 					navigate("/home");
 				} else {
 					setMessage("User Doesn't Exist");
@@ -98,7 +98,7 @@ function Login() {
 	}
 
 	useEffect(() => {
-		const user = localStorage.getItem("user");
+		const user = sessionStorage.getItem("user");
 		if (user) navigate("/home");
 	}, []);
 	return (

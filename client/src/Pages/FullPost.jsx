@@ -6,8 +6,6 @@ import { url } from "../utils/serverUrl";
 import { Context } from "../context/contextAPI";
 import animatedDiary from "../assets/animatedDiary.gif";
 
-const userId = localStorage.getItem("user");
-
 function FullPost() {
 	const [post, setPost] = useState({});
 	const [isGuest, setIsGuest] = useState(false);
@@ -16,6 +14,7 @@ function FullPost() {
 	const { setLoading } = useContext(Context);
 
 	useEffect(() => {
+		const userId = sessionStorage.getItem("user");
 		if (userId == null) setIsGuest(true);
 		fetchPostById();
 	}, []);

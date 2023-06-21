@@ -1,0 +1,54 @@
+### Test API
+GET http://localhost:3000
+
+### Get All Posts
+POST http://localhost:3000
+content-type: application/json
+
+{
+    "userId":"644a506174a13961590d17bc"
+}
+
+### Create New Journal
+POST http://localhost:3000/compose
+content-type: application/json
+
+{
+    "postTitle":"",
+    "postBody":"",
+    "userId":"644a506174a13961590d17bc",
+    "date":"",   
+}
+
+### Get Post By Id
+POST http://localhost:3000/posts/644a51c074a13961590d17c2
+
+    # TODO: Write Date Here
+{
+    "title": "Journal Title",
+    "content":"Journal Content",
+    "writtenOn":""
+}
+
+### Signup
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+    "email":"test5@gmail.com",
+    "password":"******"
+}
+
+### Login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email":"test@gmail.com",
+    "password":"******"
+}
+
+### Search Query
+GET http://localhost:3000/search/:query
+Content-Type: application/json
+

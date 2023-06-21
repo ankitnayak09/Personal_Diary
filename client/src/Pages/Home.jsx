@@ -9,8 +9,6 @@ import { Context } from "../context/contextAPI";
 import { BiSearch } from "react-icons/bi";
 import gsap from "gsap";
 
-const userId = localStorage.getItem("user");
-
 function Home() {
 	const [posts, setPosts] = useState([]);
 	const { setLoading } = useContext(Context);
@@ -19,6 +17,8 @@ function Home() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
+		const userId = sessionStorage.getItem("user");
+
 		if (userId == null) navigate("/");
 		fetchAllPosts();
 
@@ -64,6 +64,8 @@ function Home() {
 
 	async function fetchAllPosts() {
 		setLoading(true);
+		const userId = sessionStorage.getItem("user");
+
 		await fetch(url, {
 			method: "post",
 			headers: {
